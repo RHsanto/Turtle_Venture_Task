@@ -8,3 +8,17 @@ color: white;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }
+
+
+.accordion-flush .accordion-item .accordion-button,.accordion-button,.accordion-item {
+  background-color: #2A2A35;
+  color: #A2ABBD;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.accordion-button{
+  border-bottom: 1px solid;
+
+}
