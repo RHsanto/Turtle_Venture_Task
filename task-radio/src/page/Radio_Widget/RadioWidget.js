@@ -27,7 +27,7 @@ const[info,setInfo]=useState({})
               <h2>STATIONS</h2>
              <FiPower className='fs-2'/>
             </div>
-            <div className="list-item ">
+            <div className="radio-list ">
     <div className="accordion accordion-flush " id="accordionFlushExample">
       {radioData.map(data=>
         <div className="accordion-item " onClick={()=>setInfo(data)} >
@@ -54,7 +54,7 @@ const[info,setInfo]=useState({})
      </div>
             </div>
             <div className="box-footer ">
-              <p >CURRENTLY PLAYING</p>
+              <p>CURRENTLY PLAYING</p>
              <h3>{info.name}</h3>
             </div>
             </div>
