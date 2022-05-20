@@ -1,14 +1,13 @@
-.box{
-color: white;
+
+.box{ 
+border-radius: 50px;
+overflow: hidden;
+box-shadow: 1px 5px 15px #000000;
 
 }
-
 .box-header{
   background-color: #EDAD61;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
 }
-
 
 .accordion-flush .accordion-item .accordion-button,.accordion-button,.accordion-item {
   border: 0;
@@ -21,8 +20,6 @@ color: white;
 }
 .box-footer{
 background-color: #22222B;
-border-bottom-left-radius: 50px;
-border-bottom-right-radius: 50px;
 height: 80px;
 padding: 10px 0;
 }
