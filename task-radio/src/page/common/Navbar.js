@@ -7,25 +7,28 @@ const Navbar = () => {
   const { user ,logOut} = useFirebase();
 
   return (
-    <div>
+    <div className='menubar'>
     <div className="container">
       <div className="row">
-        <div className="col">
-        <div className="d-flex justify-content-between align-items-center">
-       <div className="logo"><h1>Radio Task</h1></div>
-       <div className="nav">
+        <div className="col ">
+        <div className="d-flex mt-2 justify-content-between align-items-center">
+       <div className="logo"><h1>Radio Station</h1></div>
+       <div className="nav d-flex align-items-center">
        <NavLink to='/'>Task 2</NavLink>
-        <div>
+        <>
         {user?.email ?
-    <>  {user.photoURL ? <img className="UserImg " src={user.photoURL} alt="" />
-    : <><FaUserCircle className='text-light fs-1'/></>}
+    <>  {user.photoURL ?
+    <img className="UserImg ms-4" src={user.photoURL} alt="" />
+    : <><FaUserCircle className='text-light fs-1 ms-4'/></>
+    }
+    <p className='m-2'>{user?.displayName}</p>
      <button className='bg-danger border-0 text-light  p-2 rounded ms-2'
       onClick={logOut}> <FiLogOut/> Sign-out</button>
     </>:
     <><NavLink to='/sign-in'><button className='ms-2 bg-primary border-0 text-light  p-2 rounded' >
     Sign-in</button></NavLink></>
   }
-        </div>
+        </>
       {/* //  <NavLink to='/sign-in'>Sign in</NavLink>
       // <NavLink to='/sign-up'>Sign up</NavLink> */}
        </div>
