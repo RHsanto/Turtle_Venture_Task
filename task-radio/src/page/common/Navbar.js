@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="d-flex mt-2 justify-content-between align-items-center">
        <div className="logo"><h1>Radio Station</h1></div>
        <div className="nav d-flex align-items-center">
-       <NavLink to='/'>Task 2</NavLink>
+       <NavLink to='/'>Radio Widget</NavLink>
        <NavLink to='/all-station'>All Station</NavLink>
        <NavLink to='/add-station'>Add Station</NavLink>
        <>
