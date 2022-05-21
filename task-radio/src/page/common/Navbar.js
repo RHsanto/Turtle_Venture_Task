@@ -15,7 +15,9 @@ const Navbar = () => {
        <div className="logo"><h1>Radio Station</h1></div>
        <div className="nav d-flex align-items-center">
        <NavLink to='/'>Task 2</NavLink>
-        <>
+       <NavLink to='/all-station'>All Station</NavLink>
+       <NavLink to='/add-station'>Add Station</NavLink>
+       <>
         {user?.email ?
     <>  {user.photoURL ?
     <img className="UserImg ms-4" src={user.photoURL} alt="" />
@@ -29,8 +31,6 @@ const Navbar = () => {
     Sign-in</button></NavLink></>
   }
         </>
-      {/* //  <NavLink to='/sign-in'>Sign in</NavLink>
-      // <NavLink to='/sign-up'>Sign up</NavLink> */}
        </div>
      </div>
         </div>

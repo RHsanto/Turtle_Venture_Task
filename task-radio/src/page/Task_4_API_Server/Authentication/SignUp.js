@@ -8,7 +8,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, registerUser, error, isLoading,setError,signInUsingGoogle } = useFirebase();
+  const { user, registerUser, error, saveUser,displayName,signInUsingGoogle ,saveUser2} = useFirebase();
   const navigate = useNavigate();
   const location = useLocation();
   const redirect_uri = location.state?.from || '/';
@@ -18,6 +18,8 @@ const SignUp = () => {
 const handleGoogle=(e)=>{
   signInUsingGoogle()
   .then(result=>{
+    const user =result.user;
+  saveUser2(user.email,user.displayName);
    navigate( redirect_uri);
    console.log(result);
      })
@@ -36,6 +38,7 @@ const handleGoogle=(e)=>{
 
   const handleSignUpSubmit = (e) => {
     registerUser(name, email, password);
+    saveUser(email,displayName);
     e.preventDefault();
   
   };

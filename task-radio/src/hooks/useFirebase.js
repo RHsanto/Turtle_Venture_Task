@@ -64,7 +64,7 @@ const signInUsingGoogle =()=>{
   };
 
  //login user
- const loginUser = (email, password, location) => {
+ const loginUser = (email, password) => {
   setIsLoading(true);
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -107,9 +107,9 @@ useEffect(() => {
 }, [auth]);
 
  //save user info to database
- const saveUser = (email, displayName) => {
-  const user = { email, displayName };
-  fetch("https://fierce-sea-69745.herokuapp.com/users", {
+ const saveUser = (email, name) => {
+  const user = { email, name };
+  fetch("http://localhost:8000/users", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -117,12 +117,21 @@ useEffect(() => {
     body: JSON.stringify(user),
   }).then();
 };
-
+const saveUser2 = (email,displayName)=>{
+  const user = {email, displayName};
+  fetch('http://localhost:8000/users',{
+    method: "PUT",
+    headers:{
+      'content-type': 'application/json'
+    },
+    body:JSON.stringify(user)
+  })
+ }
   return{
 signInUsingGoogle,loginUser,registerUser,
 logOut,
 user,error,setUser,setError,
-email,password,displayName,isLoading
+email,password,displayName,saveUser,saveUser2
   };
 };
 

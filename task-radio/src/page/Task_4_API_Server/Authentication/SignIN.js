@@ -35,7 +35,6 @@ const SignIN = () => {
 
   const handleSignIn = (e) => {
     loginUser(email, password, location);
-
     e.preventDefault();
   };
   return (
