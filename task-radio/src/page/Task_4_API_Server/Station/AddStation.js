@@ -3,12 +3,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddStation = () => {
+  // here use hook from and add new radio station
   const { register, handleSubmit ,reset} = useForm();
-
   const onSubmit = data => {
     console.log(data);
     axios.post('http://localhost:8000/all-station',data)
-   
     .then(res =>{
       console.log(res);
       if(res.data.insertedId){

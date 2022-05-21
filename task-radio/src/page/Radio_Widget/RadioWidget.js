@@ -6,6 +6,7 @@ import imag from '../../img/radio.png'
 
 const RadioWidget = () => {
 
+  // here input all radio station list
 const radioData = [
   {id:"1", name:"Putin FM",radio:"66,4"},
   {id:"2", name:"Biden FM",radio:"101,6"},
@@ -24,20 +25,23 @@ const[info,setInfo]=useState({})
           <div className="col-lg-6 mx-auto col-12">
             <h2>Listen and enjoy your favorite FM radio</h2>
             <div className=" box text-light mt-5">
-            <div className="d-flex  align-items-center justify-content-between py-3 px-4 box-header">
+              {/* box-header */}
+            <div className="d-flex align-items-center justify-content-between
+             py-3 px-4 box-header bg-primary">
               <MdArrowBackIosNew className='fs-2'/>
               <h2>STATIONS</h2>
              <FiPower className='fs-2'/>
             </div>
+            {/* here radio station list */}
             <div className="radio-list ">
-    <div className="accordion accordion-flush " id="accordionFlushExample">
-      {radioData.map(data=>
-        <div className="accordion-item " onClick={()=>setInfo(data)} >
-        <div id={`flush-collapse${data.id}`} 
-        className="accordion-collapse collapse"
-        aria-labelledby={`flush-heading${data.id}`}
-        data-bs-parent="#accordionFlushExample">
-        <div className="accordion-body d-flex justify-content-between align-items-center">
+         <div className="accordion accordion-flush " id="accordionFlushExample">
+          {radioData.map(data=>
+         <div className="accordion-item " onClick={()=>setInfo(data)} >
+          <div id={`flush-collapse${data.id}`} 
+         className="accordion-collapse collapse"
+         aria-labelledby={`flush-heading${data.id}`}
+          data-bs-parent="#accordionFlushExample">
+          <div className="accordion-body d-flex justify-content-between align-items-center">
           <FiMinusCircle className='fs-1'/>
             <img src={imag}alt="img" />  
          <FiPlusCircle className='fs-1'/>
@@ -51,12 +55,12 @@ const[info,setInfo]=useState({})
           <h3>{data.radio}</h3>
           </div>
         </h2>
-       
          </div>)}
-     </div>
+         </div>
             </div>
+            {/* box-footer */}
             <div className="box-footer ">
-              <p>CURRENTLY PLAYING</p>
+              <p className='text-light fw-bold m-0'>CURRENTLY PLAYING</p>
              <h3>{info.name}</h3>
             </div>
             </div>

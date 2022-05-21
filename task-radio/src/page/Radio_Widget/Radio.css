@@ -2,21 +2,18 @@
 .box{ 
 border-radius: 50px;
 overflow: hidden;
-box-shadow: 1px 5px 15px #000000;
 
 }
-.box-header{
-  background-color: #EDAD61;
-}
+
 
 .accordion-flush .accordion-item .accordion-button,.accordion-button,.accordion-item {
   border: 0;
-  color: #A2ABBD;
+  color: #000000;
   padding: 15px;
-  background-color: #2D2D38;
+  background-color: #DADEE6;
 }
 .accordion-button{
-  border-bottom: 1px solid #A2ABBD !important;
+  border-bottom: 1px solid #000000 !important;
 }
 .box-footer{
 background-color: #22222B;
@@ -24,11 +21,7 @@ height: 80px;
 padding: 10px 0;
 }
 
-.box-footer p{
- margin: 0px;
- font-weight: bold;
- color: #EDAD61;
-}
+
 .accordion-button::after{
   display: none;
 }

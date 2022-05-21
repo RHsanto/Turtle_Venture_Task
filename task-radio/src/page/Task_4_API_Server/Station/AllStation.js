@@ -1,5 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
+import { FiEdit } from 'react-icons/fi';
+import { MdDeleteForever } from 'react-icons/md';
 
 const AllStation = () => {
   const[editStation,setEditStation]=useState({})
@@ -12,7 +14,7 @@ const AllStation = () => {
     .then(res=>res.json())
     .then(data=>setStations(data))
   })
-   // Here orders delete
+   // Here station delete method
    const handleDelete = id =>{
      console.log(id);
     const proceed = window.confirm('Are you sure , you want to delete ?');
@@ -31,19 +33,19 @@ const AllStation = () => {
           })}
 
   }
-  var id = 1;
+  // add station id
+  let id = 1;
    
+  // here radio station update 
   const handleEdit=(station)=>{
     setEditStation(station);
   }
-
+  
+  // here use put method for update radio station
   const handleUpdate=(id)=>{
- 
    if(updateName === editStation.name && updateRadio === editStation.radio){
        alert("You are no changed")
    }
-   console.log(updateName,updateRadio);
-   console.log(id);
    const data = {name:updateName,radio:updateRadio }
    const url = `http://localhost:8000/all-station/${id}`
    fetch(url,{
@@ -60,10 +62,12 @@ const AllStation = () => {
   })
   }
 
+
   return (
     <div>
      <div className="container mt-5">
        <div className="row">
+         {/* start radio station table */}
          <div className="col-lg-8 mx-auto">
               <div className=" info">
               <div className="div">No</div>
@@ -73,16 +77,17 @@ const AllStation = () => {
               </div>
            {stations.map(station=>
             <div>
-             
+             {/*here start station table */}
              <div className="station-table ">
                <div className="div">{id++}</div>
                <div className="div">{station.name}</div>
                <div className="div">{station.radio}</div>
                <div className="div ">
-                 <button onClick={()=>handleEdit(station)} 
+               {/* here edit button */}
+              <button onClick={()=>handleEdit(station)} 
                  className='btn btn-success' data-bs-toggle="modal" data-bs-target="#exampleModal">
-                   Edit    </button>        
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <span className='d-flex align-items-center gap-2'>  Edit <FiEdit/></span>   </button>        
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">
                <div class="modal-header">
@@ -112,10 +117,14 @@ const AllStation = () => {
       </div>
     </div>
   </div>
-</div>
-              
-                 <button onClick={()=>handleDelete(station._id)} className='btn btn-danger ms-4'>delete</button>
-               </div>
+              </div>
+              {/* here delete button */}
+              <button onClick={()=>handleDelete(station._id)}
+                  className='btn btn-danger ms-4 '>
+                    <span className='d-flex align-items-center gap-2'>
+                 Delete <MdDeleteForever/></span>
+              </button>
+              </div>
              </div>
             </div>)}
          </div>

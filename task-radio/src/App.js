@@ -9,10 +9,11 @@ import SignUp from './page/Task_4_API_Server/Authentication/SignUp';
 import AddStation from './page/Task_4_API_Server/Station/AddStation';
 import AllStation from './page/Task_4_API_Server/Station/AllStation';
 import { gapi } from 'gapi-script';
-// import ResponseAPI from './page/Task_API_Response/ResponseAPI';
+// here use client id
 const clientId="997390170447-rkpk3l9lltfi7d9qbtcukksodou5sc75.apps.googleusercontent.com"
 
 function App() {
+  // here use function for oauth2.0
  useEffect(()=>{
    function start(){
      gapi.client.init({
@@ -33,7 +34,6 @@ function App() {
           <Route path='/sign-up' element={ <SignUp/>} />
           <Route path='/all-station' element={ <AllStation/>} />
           <Route path='/add-station' element={ <AddStation/>} />
-
         </Routes>
       </BrowserRouter>
      
@@ -45,4 +45,3 @@ function App() {
 
 export default App;
 
-// client Id : 997390170447-rkpk3l9lltfi7d9qbtcukksodou5sc75.apps.googleusercontent.com
