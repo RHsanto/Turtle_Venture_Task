@@ -3,6 +3,7 @@ import './Radio.css'
 import { FiPower ,FiMinusCircle,FiPlusCircle} from 'react-icons/fi';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import imag from '../../img/radio.png'
+
 const RadioWidget = () => {
 
 const radioData = [
@@ -14,6 +15,7 @@ const radioData = [
 ]
 
 const[info,setInfo]=useState({})
+
 
   return (
     <div className='radio-section'>
@@ -60,6 +62,8 @@ const[info,setInfo]=useState({})
             </div>
           </div>
         </div>
+
+    
       </div>
     </div>
   );

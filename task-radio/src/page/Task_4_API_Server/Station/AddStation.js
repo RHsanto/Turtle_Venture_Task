@@ -12,7 +12,7 @@ const AddStation = () => {
     .then(res =>{
       console.log(res);
       if(res.data.insertedId){
-        alert('Order Successfully');
+        alert('Radio Station Add Successfully');
         reset();
       }
     })

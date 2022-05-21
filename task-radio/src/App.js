@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './page/common/Navbar';
@@ -7,12 +8,20 @@ import SignIN from './page/Task_4_API_Server/Authentication/SignIN';
 import SignUp from './page/Task_4_API_Server/Authentication/SignUp';
 import AddStation from './page/Task_4_API_Server/Station/AddStation';
 import AllStation from './page/Task_4_API_Server/Station/AllStation';
-
+import { gapi } from 'gapi-script';
 // import ResponseAPI from './page/Task_API_Response/ResponseAPI';
-
+const clientId="997390170447-rkpk3l9lltfi7d9qbtcukksodou5sc75.apps.googleusercontent.com"
 
 function App() {
-
+ useEffect(()=>{
+   function start(){
+     gapi.client.init({
+      clientId:clientId,
+      scope:""
+     })
+   };
+   gapi.load("client:auth2",start)
+ })
   
   return (
     <div className="App">
