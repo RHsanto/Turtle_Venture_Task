@@ -10,7 +10,7 @@ const AllStation = () => {
   const[stations,setStations]=useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:8000/all-station')
+    fetch('https://whispering-thicket-90342.herokuapp.com/all-station')
     .then(res=>res.json())
     .then(data=>setStations(data))
   })
@@ -19,7 +19,7 @@ const AllStation = () => {
      console.log(id);
     const proceed = window.confirm('Are you sure , you want to delete ?');
     if(proceed){
-      const url =`http://localhost:8000/all-station/${id}`
+      const url =`https://whispering-thicket-90342.herokuapp.com/all-station/${id}`
       fetch(url,{
           method: 'DELETE'
       })
@@ -47,7 +47,7 @@ const AllStation = () => {
        alert("You are no changed")
    }
    const data = {name:updateName,radio:updateRadio }
-   const url = `http://localhost:8000/all-station/${id}`
+   const url = `https://whispering-thicket-90342.herokuapp.com/all-station/${id}`
    fetch(url,{
      method: "PUT",
      headers: {"content-type": "application/json"},

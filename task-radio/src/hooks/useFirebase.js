@@ -109,7 +109,7 @@ useEffect(() => {
  //save user info to database
  const saveUser = (email, name) => {
   const user = { email, name };
-  fetch("http://localhost:8000/users", {
+  fetch("https://whispering-thicket-90342.herokuapp.com/users", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -119,7 +119,7 @@ useEffect(() => {
 };
 const saveUser2 = (email,displayName)=>{
   const user = {email, displayName};
-  fetch('http://localhost:8000/users',{
+  fetch('https://whispering-thicket-90342.herokuapp.com/users',{
     method: "PUT",
     headers:{
       'content-type': 'application/json'

@@ -7,7 +7,7 @@ const AddStation = () => {
   const { register, handleSubmit ,reset} = useForm();
   const onSubmit = data => {
     console.log(data);
-    axios.post('http://localhost:8000/all-station',data)
+    axios.post('https://whispering-thicket-90342.herokuapp.com/all-station',data)
     .then(res =>{
       console.log(res);
       if(res.data.insertedId){
