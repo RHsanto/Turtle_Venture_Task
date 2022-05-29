@@ -65,6 +65,7 @@ color: white;
   border: 1px solid white;
   padding: 20px;
 }
+
 .station-table{
   display: grid;
   grid-template-columns:100px 300px 200px auto;

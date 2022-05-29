@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
+import useFirebase from '../../../hooks/useFirebase';
 
 const AllStation = () => {
+  const {user}=useFirebase()
   const[editStation,setEditStation]=useState({})
   const[updateName,setUpdateName]=useState("")
   const[updateRadio,setUpdateRadio]=useState("")
@@ -79,12 +81,13 @@ const AllStation = () => {
             <div>
              {/*here start station table */}
              <div className="station-table ">
-               <div className="div">{id++}</div>
+               <div  className="div">{id++}</div>
                <div className="div">{station.name}</div>
                <div className="div">{station.radio}</div>
+              {user?.email ?
                <div className="div ">
                {/* here edit button */}
-              <button onClick={()=>handleEdit(station)} 
+              <button  onClick={()=>handleEdit(station)} 
                  className='btn btn-success' data-bs-toggle="modal" data-bs-target="#exampleModal">
               <span className='d-flex align-items-center gap-2'>  Edit <FiEdit/></span>   </button>        
                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,27 +99,22 @@ const AllStation = () => {
                </div>
                <div class="modal-body">
                <div class="form-floating mt-5 m-3">
-        <input type="text" defaultValue={editStation?.name} 
-        class="form-control" id="floatingInput" onChange={e=>setUpdateName(e.target.value)}
-        />
-       
-       
-    </div>
-   <div class="form-floating m-3">
-        <input type="tel" defaultValue={editStation?.radio} 
-         class="form-control" id="floatingInput"  onChange={e=>setUpdateRadio(e.target.value)}
-         />
-     
-    </div>
+                 <input type="text" defaultValue={editStation?.name} 
+                 class="form-control" id="floatingInput" onChange={e=>setUpdateName(e.target.value)}
+                 />
               </div>
-
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onClick={()=>handleUpdate(editStation?._id)}>Save changes</button>
-      </div>
-    </div>
-  </div>
+             <div class="form-floating m-3">
+                  <input type="tel" defaultValue={editStation?.radio} 
+                   class="form-control" id="floatingInput"  onChange={e=>setUpdateRadio(e.target.value)}
+                   />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onClick={()=>handleUpdate(editStation?._id)}>Save changes</button>
+            </div>
+         </div>
+            </div>
               </div>
               {/* here delete button */}
               <button onClick={()=>handleDelete(station._id)}
@@ -124,7 +122,7 @@ const AllStation = () => {
                     <span className='d-flex align-items-center gap-2'>
                  Delete <MdDeleteForever/></span>
               </button>
-              </div>
+              </div> : <div className='div'><p>If you are logged in when you can edit </p></div>}
              </div>
             </div>)}
          </div>

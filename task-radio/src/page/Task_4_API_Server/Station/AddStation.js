@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useFirebase from '../../../hooks/useFirebase';
 
 const AddStation = () => {
+  const {user}=useFirebase()
   // here use hook from and add new radio station
   const { register, handleSubmit ,reset} = useForm();
   const onSubmit = data => {
     console.log(data);
+    data.email=user?.email
     axios.post('https://whispering-thicket-90342.herokuapp.com/all-station',data)
     .then(res =>{
       console.log(res);

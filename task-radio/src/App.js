@@ -9,6 +9,7 @@ import AddStation from './page/Task_4_API_Server/Station/AddStation';
 import AllStation from './page/Task_4_API_Server/Station/AllStation';
 
 
+
 function App() {
 
   return (
@@ -21,11 +22,9 @@ function App() {
           <Route path='/sign-up' element={ <SignUp/>} />
           <Route path='/all-station' element={ <AllStation/>} />
           <Route path='/add-station' element={ <AddStation/>} />
+         
         </Routes>
       </BrowserRouter>
-     
-    
-  
     </div>
   );
 }

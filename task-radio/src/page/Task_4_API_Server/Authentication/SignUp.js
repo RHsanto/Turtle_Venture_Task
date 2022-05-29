@@ -36,10 +36,28 @@ const handleGoogle=(e)=>{
     setPassword(e.target.value);
   };
 
-  const handleSignUpSubmit = (e) => {
+  const handleSignUpSubmit = (event) => {
     registerUser(name, email, password);
     saveUser(email,displayName);
-    e.preventDefault();
+    event.preventDefault();
+    const emails = event.target.email.value;
+    const passwords = event.target.password.value;
+
+    fetch('http://localhost:8000/login', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({emails, passwords})
+    })
+    .then(res => res.json())
+    .then(data =>{
+        if(data.success){
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate( redirect_uri);
+        }
+        console.log(data);
+    })
   
   };
  

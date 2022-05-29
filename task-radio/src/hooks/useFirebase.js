@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { getAuth, GoogleAuthProvider ,
    onAuthStateChanged, signInWithPopup,
-    signOut, createUserWithEmailAndPassword ,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+    signOut, createUserWithEmailAndPassword ,
+    signInWithEmailAndPassword, updateProfile, getIdToken } from "firebase/auth";
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import initAuthentication from '../page/Firebase/Firebase-init';
@@ -40,6 +41,7 @@ const signInUsingGoogle =()=>{
       .then((userCredential) => {
         if(userCredential.user){
           navigate( redirect_uri);
+          console.log(userCredential.user.accessToken);
         }
         setError("");
         const newUser = { email, displayName: name };
@@ -97,6 +99,8 @@ const signInUsingGoogle =()=>{
 useEffect(() => {
   const unsubscribed = onAuthStateChanged(auth, (user) => {
     if (user) {
+      getIdToken(user)
+      .then(idToken => localStorage.setItem('idToken', idToken));
       setUser(user);
     } else {
       setUser({});
